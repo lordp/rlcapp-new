@@ -29,9 +29,9 @@ class RLCWeb(object):
         }
 
         self.session_number = self.send_request(self.session_url, payload)
-        self.session_link = 'https://racingleaguecharts.com/sessions/{0}'.format(self.session_number)
-
-        self.parent.session_link.setText(self.session_link)
+        self.session_link = '<a href="https://racingleaguecharts.com/sessions/{0}">' \
+                            'https://racingleaguecharts.com/sessions/{0}' \
+                            '</a>'.format(self.session_number, self.session_number)
 
         return self.session_number
 
