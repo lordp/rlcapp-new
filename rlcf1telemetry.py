@@ -60,15 +60,15 @@ class RLCF1Telemetry(threading.Thread):
 
     def set_session_values(self, session_type=None, track_number=None, track_length=None):
         update_session = False
-        if self.session_type is None and session_type is not None:
+        if session_type is not None and session_type != self.session_type:
             self.session_type = session_type
             update_session = True
 
-        if self.track_length is None and track_length is not None:
+        if track_length is not None and track_length != self.track_length:
             self.track_length = track_length
             update_session = True
 
-        if self.track_number is None and track_number is not None:
+        if track_number is not None and track_number != self.track_number:
             self.track_number = track_number
             update_session = True
 
@@ -121,7 +121,7 @@ class RLCF1Telemetry(threading.Thread):
             self.socket.recv_into(self.buffer)
             packet = SF1.from_buffer(self.buffer)
 
-            self.set_session_values(packet.session_type, packet.track_length, packet.track_number)
+            self.set_session_values(packet.session_type, packet.track_number, packet.track_length)
             self.check_new_session(packet.session_type, packet.track_number)
 
             self.set_lap_values(packet.sector_1_time, packet.sector_2_time, packet.speed,
