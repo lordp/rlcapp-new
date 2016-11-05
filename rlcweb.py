@@ -36,12 +36,12 @@ class RLCWeb(object):
         return self.session_number
 
     def send_lap(self, session_number, lap):
-        formatted_times = lap.format_times
+        formatted_times = lap.format_times()
         payload = {
             "session_id": session_number, "lap_number": lap.lap_number, "position": lap.position,
             "sector_1": lap.sector_1, "sector_2": lap.sector_2, "sector_3": lap.sector_3,
-            "total": lap.lap_time, "formatted_total": formatted_times['total'], "speed": lap.top_speed,
-            "fuel": lap.current_fuel, "drs_used": lap.drs_used, "pitted": lap.pitted
+            "total": lap.lap_time, "formatted_total": formatted_times['lap_time'], "speed": lap.top_speed,
+            "fuel": lap.current_fuel, "drs_used": lap.drs_used, "pitted": lap.pits
         }
 
         return self.send_request(self.lap_url, payload)
