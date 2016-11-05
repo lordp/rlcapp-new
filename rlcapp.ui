@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>585</width>
+    <height>140</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>585</width>
+    <height>140</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>585</width>
+    <height>200</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="session_link">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>585</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="openExternalLinks">
+     <bool>true</bool>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>64</width>
+     <height>64</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>true</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionF1"/>
+   <addaction name="actionAC"/>
+   <addaction name="actionPCars"/>
+   <addaction name="actionRF2"/>
+   <addaction name="actioniRacing"/>
+   <addaction name="separator"/>
+   <addaction name="actionSettings"/>
+   <addaction name="actionLog"/>
+   <addaction name="separator"/>
+   <addaction name="actionExit"/>
+  </widget>
+  <action name="actionF1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>f1-icon.png</normaloff>f1-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>F1</string>
+   </property>
+   <property name="toolTip">
+    <string>Enable F1</string>
+   </property>
+  </action>
+  <action name="actionAC">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>assetto_corsa.png</normaloff>assetto_corsa.png</iconset>
+   </property>
+   <property name="text">
+    <string>AC</string>
+   </property>
+   <property name="toolTip">
+    <string>Enable Assetto Corsa</string>
+   </property>
+  </action>
+  <action name="actionPCars">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>project_cars.png</normaloff>project_cars.png</iconset>
+   </property>
+   <property name="text">
+    <string>PCars</string>
+   </property>
+   <property name="toolTip">
+    <string>Enable Project Cars</string>
+   </property>
+  </action>
+  <action name="actionRF2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>rfactor_2.png</normaloff>rfactor_2.png</iconset>
+   </property>
+   <property name="text">
+    <string>RF2</string>
+   </property>
+   <property name="toolTip">
+    <string>Enable RFactor2</string>
+   </property>
+  </action>
+  <action name="actioniRacing">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>iracing_logo.png</normaloff>iracing_logo.png</iconset>
+   </property>
+   <property name="text">
+    <string>iRacing</string>
+   </property>
+   <property name="toolTip">
+    <string>Enable iRacing</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset>
+     <normaloff>settings-icon.png</normaloff>settings-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
+   </property>
+   <property name="toolTip">
+    <string>Show Settings</string>
+   </property>
+  </action>
+  <action name="actionLog">
+   <property name="icon">
+    <iconset>
+     <normaloff>log_icon.png</normaloff>log_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Log</string>
+   </property>
+   <property name="toolTip">
+    <string>Show log</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset>
+     <normaloff>exit.png</normaloff>exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
