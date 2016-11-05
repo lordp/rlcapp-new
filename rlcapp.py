@@ -1,5 +1,5 @@
 import sys
-from PySide import QtGui
+from PySide import QtGui, QtCore
 import rlcappui
 from rlcsettings import RLCSettings
 from rlcweb import RLCWeb
@@ -25,7 +25,8 @@ class RLCApp(QtGui.QMainWindow, rlcappui.Ui_MainWindow):
         self.actionSettings.triggered.connect(self.show_settings)
         self.actionExit.triggered.connect(self.action_exit)
 
-        self.session_link.setText('hello')
+        self.session_link.hide()
+        self.timer = None
 
     def set_icons(self):
         self.icons['f1'] = QtGui.QIcon(':/icons/f1-icon.png')
@@ -56,6 +57,16 @@ class RLCApp(QtGui.QMainWindow, rlcappui.Ui_MainWindow):
 
             self.rlc_web = RLCWeb(self, driver, race, token)
 
+            self.timer = QtCore.QTimer()
+            self.timer.setSingleShot(False)
+            self.timer.timeout.connect(self.check_session_link)
+            self.timer.start(500)
+
+    def check_session_link(self):
+        if self.rlc_web is not None and self.rlc_web.session_number > 0:
+            self.session_link.setText(self.rlc_web.session_link)
+            self.session_link.show()
+
     def show_telemetry_window(self):
         if self.settings.settings['telemetry']['enabled'] == 'True':
             from rlctelemetry import RLCTelemetry
@@ -69,6 +80,7 @@ class RLCApp(QtGui.QMainWindow, rlcappui.Ui_MainWindow):
             from rlcf1telemetry import RLCF1Telemetry
             self.telemetry_system = RLCF1Telemetry(self, self.rlc_web)
         else:
+            self.timer.stop()
             if self.telemetry_system is not None:
                 self.telemetry_system.close()
                 self.telemetry_system = None
