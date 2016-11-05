@@ -19,7 +19,7 @@ class RLCSession(object):
 
     def new_lap(self):
         print(self.current_lap)
-        if self.rlc_web is not None:
+        if self.rlc_web is not None and self.current_lap.lap_number >= 0:
             self.rlc_web.send_lap(self.session_number, self.current_lap)
 
         self.current_lap = RLCLap()
