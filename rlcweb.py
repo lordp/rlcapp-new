@@ -20,9 +20,9 @@ class RLCWeb(object):
         self.session_number = 0
         track_length = round(Decimal(track_length), 3)
         payload = {
-            "track": track_number,
+            "track": int(track_number),
             "track_size": track_length,
-            "type": session_type,
+            "type": int(session_type),
             "driver": self.driver,
             "race": self.race,
             "token": self.token
