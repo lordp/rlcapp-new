@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>assetto_corsa.png</file>
+        <file>exit.png</file>
+        <file>f1-icon.png</file>
+        <file>iracing_logo.png</file>
+        <file>log_icon.png</file>
+        <file>project_cars.png</file>
+        <file>refresh-icon.png</file>
+        <file>rfactor_2.png</file>
+        <file>rlc.ico</file>
+        <file>settings-icon.png</file>
+    </qresource>
+</RCC>
