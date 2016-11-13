@@ -4,9 +4,6 @@ from decimal import Decimal
 
 class RLCWeb(object):
     def __init__(self, parent, driver, race, token):
-        self.session_url = 'https://racingleaguecharts.com/sessions/register.json'
-        self.lap_url = 'https://racingleaguecharts.com/laps.json'
-
         self.driver = driver
         self.race = race
         self.token = token
@@ -15,6 +12,23 @@ class RLCWeb(object):
 
         self.session_number = 0
         self.session_link = None
+
+        self.urls = {
+            'session': {
+                'url': 'http://192.168.178.23:3000/sessions/register.json',
+                'method': 'post',
+                'return': 'session_id'
+            },
+            'lap': {
+                'url': 'http://192.168.178.23:3000/laps.json',
+                'method': 'post'
+            },
+            'driver': {
+                'url': 'https://racingleaguecharts.com/drivers.json?token={0}'.format(self.token),
+                'method': 'get',
+                'return': 'drivers'
+            }
+        }
 
     def request_session_number(self, session_type, track_number, track_length):
         self.session_number = 0
@@ -28,7 +42,7 @@ class RLCWeb(object):
             "token": self.token
         }
 
-        self.session_number = self.send_request(self.session_url, payload)
+        self.session_number = self.send_request(self.urls['session'], payload)
         self.session_link = '<a href="https://racingleaguecharts.com/sessions/{0}">' \
                             'https://racingleaguecharts.com/sessions/{0}' \
                             '</a>'.format(self.session_number, self.session_number)
@@ -44,16 +58,15 @@ class RLCWeb(object):
             "fuel": lap.current_fuel, "drs_used": lap.drs_used, "pitted": lap.pits
         }
 
-        return self.send_request(self.lap_url, payload)
+        return self.send_request(self.urls['lap'], payload)
 
     def send_request(self, url, payload, attempts=0):
         if attempts > 4:
             return False
 
-        r = requests.post(url, data=payload)
+        r = getattr(requests, url['method'])(url['url'], data=payload)
         if r.status_code == 200:
-            if url == self.session_url:
-                return r.json()['session_id']
+            return r.json()[url['return']]
         else:
             attempts += 1
             self.send_request(url, payload, attempts)
