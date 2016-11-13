@@ -30,6 +30,9 @@ class RLCWeb(object):
             }
         }
 
+    def request_drivers(self):
+        return self.send_request(self.urls['driver'], None)
+
     def request_session_number(self, session_type, track_number, track_length):
         self.session_number = 0
         track_length = round(Decimal(track_length), 3)
