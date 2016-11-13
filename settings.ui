@@ -188,7 +188,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_4">
+    <widget class="QGroupBox" name="local_mode_box">
      <property name="geometry">
       <rect>
        <x>269</x>

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'settings.ui'
 #
-# Created: Mon Oct 31 21:38:56 2016
+# Created: Mon Nov 14 11:33:00 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -60,13 +60,13 @@ class Ui_Settings(object):
         self.forwarding_enable = QtGui.QCheckBox(self.groupBox_3)
         self.forwarding_enable.setGeometry(QtCore.QRect(50, 80, 160, 17))
         self.forwarding_enable.setObjectName("forwarding_enable")
-        self.groupBox_4 = QtGui.QGroupBox(self.tab)
-        self.groupBox_4.setGeometry(QtCore.QRect(269, 100, 261, 110))
-        self.groupBox_4.setObjectName("groupBox_4")
-        self.local_mode = QtGui.QPushButton(self.groupBox_4)
+        self.local_mode_box = QtGui.QGroupBox(self.tab)
+        self.local_mode_box.setGeometry(QtCore.QRect(269, 100, 261, 110))
+        self.local_mode_box.setObjectName("local_mode_box")
+        self.local_mode = QtGui.QPushButton(self.local_mode_box)
         self.local_mode.setGeometry(QtCore.QRect(10, 20, 241, 30))
         self.local_mode.setObjectName("local_mode")
-        self.label_6 = QtGui.QLabel(self.groupBox_4)
+        self.label_6 = QtGui.QLabel(self.local_mode_box)
         self.label_6.setGeometry(QtCore.QRect(10, 60, 241, 40))
         self.label_6.setAlignment(QtCore.Qt.AlignCenter)
         self.label_6.setWordWrap(True)
@@ -179,7 +179,7 @@ class Ui_Settings(object):
         self.label_3.setText(QtGui.QApplication.translate("Settings", "Host", None, QtGui.QApplication.UnicodeUTF8))
         self.label_4.setText(QtGui.QApplication.translate("Settings", "Port", None, QtGui.QApplication.UnicodeUTF8))
         self.forwarding_enable.setText(QtGui.QApplication.translate("Settings", "Enable", None, QtGui.QApplication.UnicodeUTF8))
-        self.groupBox_4.setTitle(QtGui.QApplication.translate("Settings", "Local Mode", None, QtGui.QApplication.UnicodeUTF8))
+        self.local_mode_box.setTitle(QtGui.QApplication.translate("Settings", "Local Mode", None, QtGui.QApplication.UnicodeUTF8))
         self.local_mode.setText(QtGui.QApplication.translate("Settings", "Enable", None, QtGui.QApplication.UnicodeUTF8))
         self.label_6.setText(QtGui.QApplication.translate("Settings", "Local mode disables the sending of lap and session data to the RLC website", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QtGui.QApplication.translate("Settings", "General", None, QtGui.QApplication.UnicodeUTF8))

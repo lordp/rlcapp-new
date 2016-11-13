@@ -149,7 +149,15 @@ class RLCSettings(QtGui.QDialog, rlcsettingsui.Ui_Settings):
         self.set_local_mode()
 
     def set_local_mode(self):
-        self.local_mode.setText('Disable' if self.local_mode_enabled else 'Enable')
+        if self.local_mode_enabled:
+            title = 'Local mode (enabled)'
+            button = 'Disable'
+        else:
+            title = 'Local mode (disabled)'
+            button = 'Enable'
+
+        self.local_mode_box.setTitle(title)
+        self.local_mode.setText(button)
 
     def accept(self):
         self.settings['general']['auth_code'] = self.auth_code.text()
