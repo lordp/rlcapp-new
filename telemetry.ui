@@ -547,6 +547,12 @@
      </disabled>
     </palette>
    </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>22</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>TextLabel</string>
    </property>
@@ -596,6 +602,12 @@
       </colorrole>
      </disabled>
     </palette>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>22</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>TextLabel</string>
