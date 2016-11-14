@@ -6,7 +6,7 @@ import ctypes
 
 
 class RLCF1Telemetry(threading.Thread):
-    def __init__(self, parent, rlc_web=None):
+    def __init__(self, parent, rlc_web=None, telemetry_settings=None):
         threading.Thread.__init__(self)
 
         self.parent = parent
@@ -14,6 +14,11 @@ class RLCF1Telemetry(threading.Thread):
         self.packets = list()
         self.rlc_web = rlc_web
         self.session = RLCSession(self.rlc_web)
+
+        self.telemetry_window = None
+        if telemetry_settings['enabled'] == 'True':
+            from rlctelemetry import RLCTelemetry
+            self.telemetry_window = RLCTelemetry(telemetry_settings)
 
         self.session_type = None
         self.track_number = None
@@ -105,6 +110,9 @@ class RLCF1Telemetry(threading.Thread):
 
         self.session.set_lap_values(self.lap_number, self.lap_time, self.sector_1, self.sector_2, self.sector_3,
                                     self.position, self.top_speed, self.current_fuel, self.drs_used, self.pits)
+
+        if self.telemetry_window is not None:
+            self.telemetry_window.reset()
 
     def check_new_session(self, session_type=None, track_number=None, track_length=None):
         if session_type is not None and session_type != self.session_type or \

@@ -67,18 +67,12 @@ class RLCApp(QtGui.QMainWindow, rlcappui.Ui_MainWindow):
             self.session_link.setText(self.rlc_web.session_link)
             self.session_link.show()
 
-    def show_telemetry_window(self):
-        if self.settings.settings['telemetry']['enabled'] == 'True':
-            from rlctelemetry import RLCTelemetry
-            RLCTelemetry(self)
-
     def action_f1(self, checked=False):
         if checked:
             self.create_web_interface()
-            self.show_telemetry_window()
 
             from rlcf1telemetry import RLCF1Telemetry
-            self.telemetry_system = RLCF1Telemetry(self, self.rlc_web)
+            self.telemetry_system = RLCF1Telemetry(self, self.rlc_web, self.settings.settings['telemetry'])
         else:
             self.timer.stop()
             if self.telemetry_system is not None:
