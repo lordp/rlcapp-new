@@ -13,20 +13,28 @@ class RLCWeb(object):
         self.session_number = 0
         self.session_link = None
 
+        domain = 'https://racingleaguecharts.com'
+
         self.urls = {
             'session': {
-                'url': 'http://192.168.178.23:3000/sessions/register.json',
+                'url': "{0}/sessions/register.json".format(domain),
                 'method': 'post',
                 'return': 'session_id'
             },
             'lap': {
-                'url': 'http://192.168.178.23:3000/laps.json',
-                'method': 'post'
+                'url': "{0}/laps.json".format(domain),
+                'method': 'post',
+                'return': 'lap_id'
             },
             'driver': {
-                'url': 'https://racingleaguecharts.com/drivers.json?token={0}'.format(self.token),
+                'url': "{0}/drivers.json?token={1}".format(domain, self.token),
                 'method': 'get',
                 'return': 'drivers'
+            },
+            'races': {
+                'url': "{0}/races/app.json".format(domain),
+                'method': 'get',
+                'return': 'races'
             }
         }
 
