@@ -98,6 +98,7 @@ class RLCSettings(QtGui.QDialog, rlcsettingsui.Ui_Settings):
         self.settings['telemetry']['center_value'] = 'speed_delta'
         self.settings['telemetry']['bottom_left_value'] = 'lap_delta'
         self.settings['telemetry']['bottom_right_value'] = 'fuel'
+        self.settings['telemetry']['diff_value'] = 'last_lap'
 
         self.settings['f1_2015']['location'] = ''
         self.settings['f1_2015']['enabled'] = 'false'
@@ -127,6 +128,7 @@ class RLCSettings(QtGui.QDialog, rlcsettingsui.Ui_Settings):
         self.set_combo_value(self.center_value, self.settings['telemetry']['center_value'])
         self.set_combo_value(self.bottom_left_value, self.settings['telemetry']['bottom_left_value'])
         self.set_combo_value(self.bottom_right_value, self.settings['telemetry']['bottom_right_value'])
+        self.set_combo_value(self.diff_value, self.settings['telemetry']['diff_value'])
 
         self.f1_2015_location = self.settings['f1_2015']['location']
         self.f1_2015_enabled = (self.settings['f1_2015']['enabled'] == 'true')
@@ -171,6 +173,7 @@ class RLCSettings(QtGui.QDialog, rlcsettingsui.Ui_Settings):
         self.settings['telemetry']['center_value'] = self.center_value.currentText()
         self.settings['telemetry']['bottom_left_value'] = self.bottom_left_value.currentText()
         self.settings['telemetry']['bottom_right_value'] = self.bottom_right_value.currentText()
+        self.settings['telemetry']['diff_value'] = self.diff_value.currentText()
 
         self.settings['f1_2015']['location'] = self.f1_2015_location
         self.settings['f1_2015']['enabled'] = str(self.f1_2015_enabled).lower()
