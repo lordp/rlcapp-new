@@ -136,11 +136,14 @@ class RLCF1Telemetry(threading.Thread):
                                 packet.fuel_in_tank, packet.car_position, packet.drs,
                                 packet.in_pits)
 
-            if packet.lap_time == 0:
-                self.finalise_lap(packet.last_lap_time, packet.lap - 1)
+            if self.telemetry_window is not None:
+                self.telemetry_window.update(packet)
+
+            if len(self.packets) > 0 and packet.lap_time < self.packets[-1].lap_time:
+                self.finalise_lap(packet.last_lap_time, self.packets[-1].lap)
                 self.set_lap_defaults()
                 del self.packets[:]
-
-            self.packets.append(packet)
+            else:
+                self.packets.append(packet)
 
         self.socket.close()
